@@ -41,16 +41,6 @@ const ModalContainerController = {
       ModalContainerController.closeModalByESC,
     );
   },
-  /**
-   * 현재 뷰포트에 맞추어 modal-container 위치
-   */
-  changePosition() {
-    const $modalContainer =
-      ElementFinder.findElementBySelector('.modal-container');
-    if (!$modalContainer) return;
-
-    $modalContainer.style.top = `${window.scrollY}PX`;
-  },
 
   private_isWrongCloseTarget(event: Event) {
     const { target } = event;

@@ -71,7 +71,6 @@ class SkeletonInfo {
     new ModalContainer({
       $children: this.#element,
     });
-    ModalContainerController.changePosition();
   }
 
   removeSkeletonInfo() {
