@@ -71,7 +71,6 @@ class ModalContainer {
       document.querySelector(`.${MODAL_CONTAINER_CLASS}`);
     // 이전에 열린 모달 제거
     if (isDeleteExistingModal) {
-      console.log('delete');
       ModalContainerController.closeModalContainer();
     }
     //새로운 모달 생성
