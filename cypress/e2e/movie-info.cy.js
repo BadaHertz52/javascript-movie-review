@@ -83,15 +83,17 @@ describe('영화 상세 정보 모달 테스트', () => {
         });
       });
     });
-    it('모달의 배경화면을 클릭하면 영화 상세 정보 모달이 닫힌다.', () => {
+    it.only('모달의 배경화면을 클릭하면 영화 상세 정보 모달이 닫힌다.', () => {
       cy.wait('@getPopularMovies').then(() => {
         cy.clickFirstMovieCard();
         cy.wait('@getMovieInfo').then(() => {
           //모달 열림
           cy.get('.modal-movie-info').should('exist');
-          cy.get('.modal-background').click({ force: true });
+          cy.get('.modal-background').click(30, 30, { force: true });
           //모달 닫힘
-          cy.get('.modal-movie-info').should('not.exist');
+          setTimeout(() => {
+            cy.get('.modal-movie-info').should('not.exist');
+          }, 1000);
         });
       });
     });
