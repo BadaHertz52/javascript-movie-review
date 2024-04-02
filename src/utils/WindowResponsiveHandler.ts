@@ -1,9 +1,13 @@
 import SearchBoxResponsiveHandler from '../components/searching/SearchBoxResponsiveHandler';
 
+import debouceFunc from './debouneFunc';
+
 const WindowResponsiveHandler = {
   handleWindowResize() {
     window.addEventListener('resize', () => {
-      SearchBoxResponsiveHandler.handleSizeByWindowSize();
+      debouceFunc(() => {
+        SearchBoxResponsiveHandler.handleSizeByWindowSize();
+      });
     });
   },
 };
