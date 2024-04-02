@@ -1,9 +1,12 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
+
+import * as env from './cypress.env.json';
 
 export default defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    baseUrl: 'http://localhost:8080',
+  },
+  env: {
+    TMDB_API_KEY: env.tmdbApiKey,
   },
 });
