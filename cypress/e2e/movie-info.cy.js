@@ -20,7 +20,7 @@ describe('영화 상세 정보 모달 테스트', () => {
       { fixture: 'movie-info.json' },
     ).as('getMovieInfo');
 
-    cy.visitMainPage();
+    cy.visit('/');
 
     cy.wait('@getPopularMovies').then(() => {
       // 초기 :화면에 영화 상세 정보 모달이 안보임
@@ -68,7 +68,7 @@ describe('영화 상세 정보 모달 테스트', () => {
         { fixture: 'movie-info.json' },
       ).as('getMovieInfo');
 
-      cy.visitMainPage();
+      cy.visit('/');
     });
 
     it('모달의 닫기 벼튼을 클릭하면 영화 상세 정보 모달이 닫힌다.', () => {
@@ -128,7 +128,7 @@ describe('영화 상세 정보 모달 테스트', () => {
         { fixture: 'movie-info-none-img-overview.json' },
       ).as('getMovieInfo');
 
-      cy.visitMainPage();
+      cy.visit('/');
     });
 
     it('데이터에 영화 이미지가 없는 경우, 영화 포스터 대신 "none-img" 사진을 보여준다', () => {

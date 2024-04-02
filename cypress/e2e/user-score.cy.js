@@ -69,7 +69,7 @@ describe('내 별점 테스트', () => {
 
               cy.setLocalStorage(item);
 
-              cy.visitMainPage();
+              cy.visit('/');
 
               cy.wait('@getPopularMovies').then(() => {
                 cy.clickFirstMovieCard();
@@ -108,7 +108,7 @@ describe('내 별점 테스트', () => {
         { fixture: 'movie-info.json' },
       ).as('getMovieInfo');
 
-      cy.visitMainPage();
+      cy.visit('/');
 
       cy.wait('@getPopularMovies').then(() => {
         cy.clickFirstMovieCard();
@@ -145,7 +145,7 @@ describe('내 별점 테스트', () => {
         text: '별로에요.',
       };
       cy.setLocalStorage(LOCAL_STORAGE_ITEM);
-      cy.visitMainPage();
+      cy.visit('/');
 
       cy.wait('@getPopularMovies').then(() => {
         cy.clickFirstMovieCard();

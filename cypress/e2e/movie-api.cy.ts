@@ -1,5 +1,4 @@
 import { BASE_URL, endPoint } from '../../src/config';
-import { getPopularURL } from '../utils/createURL';
 
 /* eslint-disable max-lines-per-function */
 describe('영화 API 테스트', () => {
@@ -16,7 +15,7 @@ describe('영화 API 테스트', () => {
   });
 
   it('영화 검색 시 검색한 영화에 대한 정보를 한번에 최대 20개의 목록을 받아온다.', () => {
-    cy.visit('http://localhost:8080');
+    cy.visit('/');
 
     const searchMovieUrl = `${BASE_URL}/${endPoint.searchMovie('해리', 1)}&${new URLSearchParams(
       {

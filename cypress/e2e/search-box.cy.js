@@ -18,7 +18,7 @@ describe('검색창 테스트', () => {
       { fixture: 'movie-search-page1.json' },
     ).as('getSearchMovies1');
 
-    cy.visitMainPage();
+    cy.visit('/');
 
     // API 호출
     cy.wait('@getPopularMovies1').then((intercept) => {
@@ -50,7 +50,7 @@ describe('검색창 테스트', () => {
       { fixture: 'movie-search-page1.json' },
     ).as('getSearchMovies1');
 
-    cy.visit('http://localhost:8080/');
+    cy.visit('//');
 
     // API 호출
     cy.wait('@getPopularMovies1').then((intercept) => {

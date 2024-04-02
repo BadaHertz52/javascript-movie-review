@@ -19,10 +19,10 @@ describe('무한 스크롤 테스트', () => {
         { fixture: 'movie-popular-page2.json' },
       ).as('getPopularMovies2');
 
-      cy.visitMainPage();
+      cy.visit('/');
 
       cy.wait('@getPopularMovies1').then((intercept) => {
-        cy.scrollBottom();
+        cy.scrollTo('bottom');
         cy.wait('@getPopularMovies2').then((intercept) => {
           cy.get('.movie-list-container').within(() => {
             cy.get('.movie-list').then(($elements) => {
@@ -50,12 +50,12 @@ describe('무한 스크롤 테스트', () => {
         { fixture: 'movie-popular-last-page.json' },
       ).as('getPopularMoviesLast');
 
-      cy.visitMainPage();
+      cy.visit('/');
 
       cy.wait('@getPopularMovies1').then((intercept) => {
         //더 불러올 영화 리스트가 있다면, END 는 보이지 않는다.
         cy.get('.no-more-movie-data').should('not.be.visible');
-        cy.scrollBottom();
+        cy.scrollTo('bottom');
 
         cy.wait('@getPopularMoviesLast').then((intercept) => {
           cy.get('.no-more-movie-data').should('be.visible');
@@ -88,7 +88,7 @@ describe('무한 스크롤 테스트', () => {
           { fixture: 'movie-search-page2.json' },
         ).as('getSearchMovies2');
 
-        cy.visitMainPage();
+        cy.visit('/');
 
         cy.wait('@getPopularMovies').then((intercept) => {
           // 검색
@@ -97,7 +97,7 @@ describe('무한 스크롤 테스트', () => {
           cy.get('.search-button').click();
 
           cy.wait('@getSearchMovies1').then((intercept) => {
-            cy.scrollBottom();
+            cy.scrollTo('bottom');
 
             cy.wait('@getSearchMovies2').then((intercept) => {
               cy.get('.movie-list-container').within(() => {
@@ -127,12 +127,12 @@ describe('무한 스크롤 테스트', () => {
           { fixture: 'movie-popular-last-page.json' },
         ).as('getPopularMoviesLast');
 
-        cy.visitMainPage();
+        cy.visit('/');
 
         cy.wait('@getPopularMovies1').then((intercept) => {
           //더 불러올 영화 리스트가 있다면, END 는 보이지 않는다.
           cy.get('.no-more-movie-data').should('not.be.visible');
-          cy.scrollBottom();
+          cy.scrollTo('bottom');
 
           cy.wait('@getPopularMoviesLast').then((intercept) => {
             cy.get('.no-more-movie-data').should('be.visible');
